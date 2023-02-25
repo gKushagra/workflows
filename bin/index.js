@@ -3,7 +3,7 @@
 /**
  * Module dependencies.
  */
-
+var config = require('../config');
 var app = require('../app');
 var debug = require('debug')('workflows:server');
 var http = require('http');
@@ -12,7 +12,7 @@ var http = require('http');
  * Get port from environment and store in Express.
  */
 
-var port = normalizePort(process.env.PORT || '3000');
+var port = normalizePort(config.PORT || '5454');
 app.set('port', port);
 
 /**
@@ -87,4 +87,5 @@ function onListening() {
     ? 'pipe ' + addr
     : 'port ' + addr.port;
   debug('Listening on ' + bind);
+  console.info('Listening on ' + bind);
 }
